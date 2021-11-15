@@ -63,7 +63,7 @@ public class DriveTrainSubsystem extends SubsystemBase {
 
   public Boolean driveForwardInches(double motorSpeed, int inchesToDrive, Boolean resetEncoder) {
     Boolean driveComplete = false;
-    int currentShaftEncoderValue = 0;
+    double currentShaftEncoderValue = 0;
     int targetShaftEncoderCount = 0;
     int convertRotationsToInches = 500; // Will need tested, calibrated and revised
     // Reset the shaft encoder value
