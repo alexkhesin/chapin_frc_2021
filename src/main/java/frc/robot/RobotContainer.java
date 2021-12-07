@@ -5,7 +5,6 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.StartEndCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.DriveForward50;
 import frc.robot.commands.DriveInSquareCommandGroup;
@@ -48,9 +47,8 @@ public class RobotContainer {// The robot's subsystems and commands are defined 
     // This code adds values to the "DriveTrainDisplay" Tab on the Shuffleboard.
     // This code is dependent on two methods added to the RobotContainer to access
     // the data to be displayed
-    Shuffleboard.getTab("DriveTrainDisplay").addNumber("Joystick-Y", () -> {
-      return m_controller.getY(Hand.kLeft);
-    }).withWidget(BuiltInWidgets.kNumberSlider).withPosition(6, 3);
+    Shuffleboard.getTab("DriveTrainDisplay").addNumber("Joystick-Y", this::getJoystickYValue)
+        .withWidget(BuiltInWidgets.kNumberSlider).withPosition(6, 3);
     Shuffleboard.getTab("DriveTrainDisplay").addNumber("Joystick-X", this::getJoystickXValue)
         .withWidget(BuiltInWidgets.kNumberSlider).withPosition(6, 4);
     // This adds a command to the Shuffleboard
