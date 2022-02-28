@@ -3,8 +3,8 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.SPI;
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -16,11 +16,11 @@ public class DriveTrainSubsystem extends SubsystemBase {
   public DriveTrainSubsystem() {
     WPI_TalonSRX frontLeft = new WPI_TalonSRX(Constants.FRONT_LEFT_TALON_ID);
     WPI_TalonSRX rearLeft = new WPI_TalonSRX(Constants.REAR_LEFT_TALON_ID);
-    SpeedControllerGroup left = new SpeedControllerGroup(frontLeft, rearLeft);
+    MotorControllerGroup left = new MotorControllerGroup(frontLeft, rearLeft);
  
     WPI_TalonSRX frontRight = new WPI_TalonSRX(Constants.FRONT_RIGHT_TALON_ID);
     WPI_TalonSRX rearRight = new WPI_TalonSRX(Constants.REAR_RIGHT_TALON_ID);
-    SpeedControllerGroup right = new SpeedControllerGroup(frontRight, rearRight);
+    MotorControllerGroup right = new MotorControllerGroup(frontRight, rearRight);
  
     m_drive = new DifferentialDrive(left, right);
 

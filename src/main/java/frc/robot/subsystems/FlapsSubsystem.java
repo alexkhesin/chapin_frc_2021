@@ -1,19 +1,19 @@
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.motorcontrol.PWMVictorSPX;
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class FlapsSubsystem extends SubsystemBase {
-  SpeedControllerGroup m_flaps;
+  MotorControllerGroup m_flaps;
 
   public FlapsSubsystem() {
     PWMVictorSPX front = new PWMVictorSPX(Constants.FRONT_FLAP_PWM_PORT);
     PWMVictorSPX rear = new PWMVictorSPX(Constants.REAR_FLAP_PWM_PORT);
     rear.setInverted(true);
-    m_flaps = new SpeedControllerGroup(front, rear);
+    m_flaps = new MotorControllerGroup(front, rear);
   }
 
   public void setSpeed(double speed) {
