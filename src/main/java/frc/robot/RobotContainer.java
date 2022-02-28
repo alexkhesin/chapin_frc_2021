@@ -1,7 +1,6 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -37,9 +36,9 @@ public class RobotContainer {// The robot's subsystems and commands are defined 
     JoystickButton button_B = new JoystickButton(m_controller, XboxController.Button.kB.value);
     button_B.whenPressed(new TurnRobot(m_driveTrainSubsystem, 90).withName("turn 90"));
 
-    JoystickButton button_bumperLeft = new JoystickButton(m_controller, XboxController.Button.kBumperLeft.value);
+    JoystickButton button_bumperLeft = new JoystickButton(m_controller, XboxController.Button.kLeftBumper.value);
     button_bumperLeft.whileHeld(new FlapsCommand(m_flaps, 0.5));
-    JoystickButton button_bumperRight = new JoystickButton(m_controller, XboxController.Button.kBumperRight.value);
+    JoystickButton button_bumperRight = new JoystickButton(m_controller, XboxController.Button.kRightBumper.value);
     button_bumperRight.whileHeld(new FlapsCommand(m_flaps, -0.5));
 
     // Add information to the Shuffleboard for monitoring and Troubleshooting
@@ -68,10 +67,10 @@ public class RobotContainer {// The robot's subsystems and commands are defined 
   // These are used by the commands to add data to the shuffleboard (See the
   // RobotContainer Constructor)
   private double getJoystickXValue() {
-    return m_controller.getX(Hand.kRight);
+    return m_controller.getRightX();
   }
 
   private double getJoystickYValue() {
-    return m_controller.getY(Hand.kLeft);
+    return m_controller.getLeftY();
   }
 }
